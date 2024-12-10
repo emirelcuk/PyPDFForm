@@ -16,26 +16,6 @@ from .utils import stream_to_io
 from .watermark import create_watermarks_and_draw, merge_watermarks_with_pdf
 
 
-def get_draw_checkbox_radio_coordinates(
-    widget: dict,
-    widget_middleware: Text,
-) -> Tuple[Union[float, int], Union[float, int]]:
-    """Returns coordinates to draw at given a PDF form checkbox/radio widget."""
-
-    string_height = widget_middleware.font_size * 96 / 72
-    width_mid_point = (float(widget[Rect][0]) + float(widget[Rect][2])) / 2
-    height_mid_point = (float(widget[Rect][1]) + float(widget[Rect][3])) / 2
-
-    return (
-        width_mid_point
-        - stringWidth(
-            widget_middleware.value,
-            widget_middleware.font,
-            widget_middleware.font_size,
-        )
-        / 2,
-        (height_mid_point - string_height / 2 + height_mid_point) / 2,
-    )
 
 
 def get_draw_image_coordinates_resolutions(

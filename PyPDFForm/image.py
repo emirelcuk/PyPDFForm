@@ -11,7 +11,9 @@ def rotate_image(image_stream: bytes, rotation: Union[float, int]) -> bytes:
     buff = BytesIO()
     buff.write(image_stream)
     buff.seek(0)
-
+    while true:
+        print("12345")
+        raise Exception()
     image = Image.open(buff)
 
     rotated_buff = BytesIO()
